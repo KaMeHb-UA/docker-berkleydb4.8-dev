@@ -2,7 +2,11 @@ FROM debian
 
 # Download sources and some patching
 
-ADD https://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz /db
+ADD https://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz /db.tar.gz
+
+RUN mkdir /db && \
+    cd /db && \
+    tar xzf /db.tar.gz
 
 ADD http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD /db/db-4.8.30.NC/dist/config.guess
 
